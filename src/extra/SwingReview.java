@@ -29,6 +29,7 @@ public class SwingReview implements ActionListener, KeyListener {
 	JLabel label;
 	JButton button1;
 	JButton button2;
+	int clicked = 0;
 
 	public void run() throws Exception {
 		// 1. Initialize your JFrame variable as an object of the JFrame class
@@ -128,18 +129,23 @@ public class SwingReview implements ActionListener, KeyListener {
 		// 25. Check which button was clicked
 		// 26. If the "Click Me" button was clicked, use JOptionPane pop-up to say "Good
 		// Choice"
-		if (button1.isEnabled()) {
+		if (button1 == buttonClicked) {
 			JOptionPane.showMessageDialog(null, "Good choice!");
+			clicked += 1;
+			System.out.println(clicked);
 		}
 
 		// 27. If the "No, Click Me button" was clicked, say "A Better Choice"
-		else if (button2.isEnabled()) {
+		else if (button2 == buttonClicked) {
 			JOptionPane.showMessageDialog(null, "A better choice!");
 		}
 		
 		// 28. If the "Click Me" button is clicked 3 times, change the text of the
 		// button
 		// to say "Stop Clicking Me"
+		if (clicked == 3) {
+			JOptionPane.showMessageDialog(null, "Stop clicking me!");
+		}
 		
 
 	}
